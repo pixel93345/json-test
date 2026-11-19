@@ -1,0 +1,50 @@
+<h2>Products</h2>
+<div id="products"></div>
+
+<h2>Cart</h2>
+<div id="cart"></div>
+
+<script>
+    let cart = [];
+
+    // ==================== API ==================== // 
+    fetch("https://raw.githubusercontent.com/mdn/learning-area/main/javascript/apis/fetching-data/can-store/products.json").then(function (res) {
+        return res.json();
+    })
+        .then(function (products) {
+            let html = '';
+
+            // 1. לולאה שרצה על כל המוצרים ומייצרת מחרוזת HTML של כפתורים
+            // משתמשים באינדקס (index) כדי להעניק לכל כפתור מזהה (ID) ייחודי
+            products.forEach(function (product, index) {
+                html += `<button id="productButton_${index}">${product.name}</button> `;
+            });
+
+            // הדפסת כל הכפתורים בבת אחת לתוך ה-div
+            document.getElementById('products').innerHTML = html;
+
+            // 2. לולאה נוספת שמחברת לכל כפתור שנוצר את אירוע הלחיצה (onclick) שלו
+            products.forEach(function (product, index) {
+                document.getElementById(`productButton_${index}`).onclick = function () {
+                    addProduct(product);
+                };
+            });
+        });
+
+    // ==================== Functions ==================== // 
+    function addProduct(product) {
+        cart.push(product);
+        renderList();
+    }
+
+    function renderList() {
+        let html = '';
+
+        // הלולאה של העגלה מתחילה מ-0 כדי להציג את כל המוצרים
+        for (let i = 0; i < cart.length; i++) {
+            html += `<p>${cart[i].name} - $${cart[i].price.toFixed(2)}</p>`;
+        }
+
+        document.getElementById('cart').innerHTML = html;
+    } 
+</script>

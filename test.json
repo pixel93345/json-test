@@ -1,0 +1,37 @@
+{
+    "currency": "ILS",
+    "products": [
+        {
+            "id": 101,
+            "name": "אוזניות אלחוטיות",
+            "category": "אלקטרוניקה",
+            "price": 299.00,
+            "inStock": true,
+            "quantity": 24
+        },
+        {
+            "id": 102,
+            "name": "עכבר ארגונומי",
+            "category": "אביזרי מחשב",
+            "price": 149.50,
+            "inStock": true,
+            "quantity": 15
+        },
+        {
+            "id": 103,
+            "name": "מחברת ספירלה A4",
+            "category": "משרד ולימודים",
+            "price": 24.90,
+            "inStock": true,
+            "quantity": 80
+        },
+        {
+            "id": 104,
+            "name": "בקבוק מים מנירוסטה",
+            "category": "ספורט וחוץ",
+            "price": 89.00,
+            "inStock": false,
+            "quantity": 0
+        }
+    ]
+}
